@@ -18,7 +18,7 @@ include_once '../config/connection.php';
         <title>Toko Saya</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index.php">Toko Saya</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,21 +27,6 @@ include_once '../config/connection.php';
 
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="navbar-nav">
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-kategori" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-referensi">
-                                <a class="dropdown-item" href="#">Fashion</a>
-                                <a class="dropdown-item" href="#">Elektronik</a>
-                                <a class="dropdown-item" href="#">Makanan</a>
-                                <a class="dropdown-item" href="#">Mobil</a>
-                                <a class="dropdown-item" href="#">Motor</a>
-                                <a class="dropdown-item" href="#">Game</a>
-                                <a class="dropdown-item" href="#">Hobi</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#search-product-modal">Pencarian</a>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="kategori_list.php">
                                 Kategori
@@ -66,7 +51,7 @@ include_once '../config/connection.php';
 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-danger" href="#">Logout</a>
+                            <a class="nav-link btn btn-outline-secondary" href="#">Logout</a>
                         </li>
                     </ul>
                 </div>
