@@ -1,3 +1,28 @@
+<?php
+include_once 'config/connection.php';
+
+session_start();
+
+// unset($_SESSION['cart']);
+
+$tamu = true;
+if (isset($_SESSION['user'])) {
+    $tamu = false;
+    $tipeUser = $_SESSION['user']['type'];
+}
+
+$totalIsiKeranjang = 0;
+if (isset($_SESSION['cart']['barang'])) {
+    $totalIsiKeranjang = count($_SESSION['cart']['barang']);
+    // echo "<pre>"; print_r($_SESSION['cart']['barang']); exit;
+}
+
+$resultKategori = mysqli_query($con, "SELECT * FROM kategori");
+if ($resultKategori == false) {
+    die('Error: ' . mysqli_error($con));
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,14 +48,12 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-kategori" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-referensi">
-                                <a class="dropdown-item" href="#">Fashion</a>
-                                <a class="dropdown-item" href="#">Elektronik</a>
-                                <a class="dropdown-item" href="#">Makanan</a>
-                                <a class="dropdown-item" href="#">Mobil</a>
-                                <a class="dropdown-item" href="#">Motor</a>
-                                <a class="dropdown-item" href="#">Game</a>
-                                <a class="dropdown-item" href="#">Hobi</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-kategori">
+                                <?php if (mysqli_num_rows($resultKategori) > 0) : ?>
+                                    <?php foreach ($resultKategori as $kategori): ?>
+                                        <a class="dropdown-item" href="#"><?= $kategori['nama_kategori'] ?></a>
+                                    <?php endforeach; ?>
+                                <?php endif ?>
                             </div>
                         </li>
                     </ul>
@@ -41,15 +64,24 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="cart.php">
-                                <span class="badge badge-info">4</span> Keranjang
+                                <span class="badge badge-info"><?= $totalIsiKeranjang ?></span> Keranjang
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-outline-info" href="register.php">Daftar</a>
-                        </li>
+                        <?php if ($tamu): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-info" href="register.php">Daftar</a>
+                            </li>
+                        <?php else: ?>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-secondary mr-1" href="<?= $tipeUser ?>">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-danger" href="user_act_logout.php">Logout</a>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>

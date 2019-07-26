@@ -26,6 +26,8 @@ if ($result == false) {
 
     <p>
         <a href="kategori_list.php" class="btn btn-sm btn-secondary">Kembali</a>
+        <a href="kategori_form.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning">Ubah</a>
+        <a href="kategori_act_delete.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-danger">Hapus</a>
     </p>
 
     <table class="table table-bordered">

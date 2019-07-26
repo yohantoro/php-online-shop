@@ -1,4 +1,15 @@
-<?php include_once 'layout_header.php'; ?>
+<?php
+include_once 'layout_header.php';
+
+if (isset($_SESSION['user'])) {
+    if ($_SESSION['user']['type'] == 'member') {
+        header('location: member');
+    }
+    if ($_SESSION['user']['type'] == 'admin') {
+        header('location: admin');
+    }
+}
+?>
 
 <div class="row justify-content-center">
     <div class="col-lg-4">
@@ -9,14 +20,14 @@
                 </div>
             </div>
             <div class="card-body">
-                <form class="" action="index.html" method="post">
+                <form class="" action="user_act_login.php" method="post">
                     <div class="form-group">
                         <label for="">Username</label>
-                        <input type="text" name="username" value="" class="form-control" required>
+                        <input type="text" name="username" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="password" name="password" value="" class="form-control" required>
+                        <input type="password" name="password" class="form-control" required>
                     </div>
 
                     <p>

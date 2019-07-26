@@ -1,9 +1,9 @@
 <?php
 
 const HOST          = 'localhost';
-const DB_NAME       = 'yourdatabase';
-const DB_USERNAME   = 'yourusername';
-const DB_PASSWORD   = 'yourpassword';
+const DB_NAME       = 'online_shop';
+const DB_USERNAME   = 'root';
+const DB_PASSWORD   = 'roottoor321';
 
 $con = mysqli_connect(HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 

@@ -2,6 +2,16 @@
 
 include_once '../config/connection.php';
 
+session_start();
+// echo "<pre>"; var_dump($_SESSION); exit;
+if (!isset($_SESSION['user'])) {
+    header('location: ../login.php');
+} else {
+    if ($_SESSION['user']['type'] != 'admin') {
+        die('Anda tidak diperbolehkan mengakses halaman ini!');
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +30,7 @@ include_once '../config/connection.php';
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index.php">Toko Saya</a>
+                <a class="navbar-brand" href="../index.php">Toko Saya</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -51,7 +61,7 @@ include_once '../config/connection.php';
 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-secondary" href="#">Logout</a>
+                            <a class="nav-link btn btn-outline-secondary" href="../user_act_logout.php">Logout</a>
                         </li>
                     </ul>
                 </div>
