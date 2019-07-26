@@ -27,7 +27,7 @@ if ($resultBarang == false) {
                             <?php foreach ($resultBarang as $barang): ?>
                                 <div class="col-lg-3">
                                     <div class="card mb-3">
-                                        <img src="uploads/barang/<?= $barang['gambar'] ?>" class="card-img-top img-fluid" width="50" alt="image">
+                                        <img src="uploads/barang/<?= $barang['gambar'] ?>" class="card-img-top img-fluid" style="height: 200px;" alt="image">
                                         <div class="card-body">
                                             <a href="product_detail.php?id=<?= $barang['id'] ?>">
                                                 <h5 class="card-title"><?= $barang['nama_barang'] ?></h5>
