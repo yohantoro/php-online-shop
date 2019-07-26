@@ -65,6 +65,7 @@ CREATE TABLE `transaksi` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `no_transaksi` int(11) NOT NULL,
+  `tgl_transaksi` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -86,6 +87,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `nama_lengkap`, `alamat`, `no_telp`, `jenis_kelamin`, `tgl_lahir`, `user_type`) VALUES
 (1,	'john_wick',	'$2y$10$QlmnMFT1M.3Ko542B8Iz7.8vCRLO.nwcsL4lGxEnl/pOqHb1dD1p6',	'test@email.com',	'Mario Luigi',	'Jogja',	'081180081180',	1,	'2000-01-01',	'member'),
-(2,	'admin',	'$2y$10$g6ioDBIOZshUaLKJak8mx.990Qd2HH4zVuzTx6yHGGK5AzHYnpiVe',	'admin@email.com',	'Administrator',	'Rahasia',	'081180081180',	1,	'2000-01-01',	'admin');
+(2,	'admin',	'$2y$10$g6ioDBIOZshUaLKJak8mx.990Qd2HH4zVuzTx6yHGGK5AzHYnpiVe',	'admin@email.com',	'Administrator',	'Rahasia',	'081180081180',	1,	'2000-01-01',	'admin'),
+(3,	'siswa.smk',	'$2y$10$kKWQTz370EOvnSOYE5a23O8Mlj9soynp/Xy0LgP37OwjiV.pltlC2',	'siswa@email.com',	'Syahrini',	'Sanden',	'081180081180',	2,	'2000-01-01',	'member');
 
--- 2019-07-26 02:44:23
+-- 2019-07-26 04:14:12
